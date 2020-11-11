@@ -1,0 +1,25 @@
+com:
+  laomei:
+    sidecar:
+      header-name: headerA
+      header-value: valueA
+      redirect-host: localhost
+      redirect-port: 9005 # 被代理服务的端口
+      sidecar-port: 8080 #当前sidecar的端口
+      health-a-p-i: /healthz
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: example
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: 'http://localhost:8761/eureka/'
